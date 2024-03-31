@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:quran/data/constants/strings.dart';
 import '../../models/prayer_time_model.dart' as model;
 import 'package:location/location.dart';
 import 'package:quran/data/network/request.dart';
@@ -14,10 +15,17 @@ class HomeViewCubitCubit extends Cubit<HomeViewCubitState> {
 
   double longitude = 0;
   double latitude = 0;
+  String location = '';
   double timeLeftInMilliseconds = 0;
   model.PrayerTime prayerTime = model.PrayerTime();
   String nextPrayer = '00:00';
   String prayerName = 'Fajr';
+  bool sl = false;
+  bool fl = false;
+  bool dl = false;
+  bool al = false;
+  bool ml = false;
+  bool il = false;
   getPrayerTimes() async {
     final now = DateTime.now();
     String currentDate = DateFormat('dd-MM-yyyy').format(now);
@@ -49,8 +57,8 @@ class HomeViewCubitCubit extends Cubit<HomeViewCubitState> {
           currentLocation.longitude != null) {
         latitude = currentLocation.latitude!;
         longitude = currentLocation.longitude!;
+        location = currentLocation.provider!;
         emit(GetLocationSuccessState());
-    
       }
     });
   }
@@ -99,37 +107,43 @@ class HomeViewCubitCubit extends Cubit<HomeViewCubitState> {
       timeLeftInMilliseconds = fajrTime + (86400000 - currentTime);
       emit(SetCountdownTimesSuccessState());
       nextPrayer = f;
-      prayerName = 'الفجر';
+      prayerName = StringData.fajr;
+      fl = true;
       emit(SetNextPrayerTimesSuccessState());
     } else if (currentTime >= fajrTime && currentTime <= sunTime) {
       timeLeftInMilliseconds = sunTime - currentTime;
       emit(SetCountdownTimesSuccessState());
       nextPrayer = s;
-      prayerName = 'الشروق';
+      prayerName = StringData.sunrise;
+      sl = true;
       emit(SetNextPrayerTimesSuccessState());
     } else if (currentTime >= sunTime && currentTime <= duhrTime) {
       timeLeftInMilliseconds = duhrTime - currentTime;
       emit(SetCountdownTimesSuccessState());
       nextPrayer = d;
-      prayerName = "الظهر";
+      prayerName = StringData.dhuhr;
+      dl = true;
       emit(SetNextPrayerTimesSuccessState());
     } else if (currentTime >= duhrTime && currentTime <= asrTime) {
       timeLeftInMilliseconds = asrTime - currentTime;
       emit(SetCountdownTimesSuccessState());
       nextPrayer = a;
-      prayerName = "العصر";
+      prayerName = StringData.asr;
+      al = true;
       emit(SetNextPrayerTimesSuccessState());
     } else if (currentTime >= asrTime && currentTime <= magrTime) {
       timeLeftInMilliseconds = magrTime - currentTime;
       emit(SetCountdownTimesSuccessState());
       nextPrayer = m;
-      prayerName = "المغرب";
+      prayerName = StringData.maghrib;
+      ml = true;
       emit(SetNextPrayerTimesSuccessState());
     } else if (currentTime >= magrTime) {
       timeLeftInMilliseconds = ishaTime - currentTime;
       emit(SetCountdownTimesSuccessState());
       nextPrayer = i;
-      prayerName = "العشاء";
+      prayerName = StringData.isha;
+      il = true;
       emit(SetNextPrayerTimesSuccessState());
     }
   }

@@ -20,7 +20,10 @@ class Quran extends StatelessWidget {
     return BlocProvider(
       create: (context) => HomeViewCubitCubit()..getLocation(),
       child: const MaterialApp(
-        home: HomeView(),
+        title: 'Quran',
+        debugShowCheckedModeBanner: false,
+        home: SafeArea(
+          child: HomeView()),
       ),
     );
   }
