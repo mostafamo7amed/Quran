@@ -6,6 +6,8 @@ import 'package:quran/data/providers/cubit/home_view_cubit_cubit.dart';
 import 'package:quran/views/widgets/custom_prayer_widget.dart';
 import 'package:slide_countdown/slide_countdown.dart';
 
+import 'widgets/lost_connection.dart';
+
 class MobileView extends StatefulWidget {
   const MobileView({super.key});
 
@@ -27,8 +29,10 @@ class _MobileViewState extends State<MobileView> {
       },
       builder: (context, state) {
         var cubit = HomeViewCubitCubit.getCubit(context);
-
-        return cubit.prayerTime.data != null
+        if (cubit.connectionState == 'none') {
+          return const LostConnection();
+        } else {
+          return cubit.prayerTime.data != null
             ? CustomScrollView(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -231,6 +235,9 @@ class _MobileViewState extends State<MobileView> {
                 ],
               )
             : const Center(child: CircularProgressIndicator());
+        }
+
+        
       },
     );
   }

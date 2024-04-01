@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -26,6 +27,15 @@ class HomeViewCubitCubit extends Cubit<HomeViewCubitState> {
   bool al = false;
   bool ml = false;
   bool il = false;
+  var connectionState = 'none';
+
+  void checkConnection() async {
+    var result = await Connectivity().checkConnectivity();
+    connectionState = result.name;
+    print('result.name' + result.name);
+    emit(CheckConnectionState());
+  }
+
   getPrayerTimes() async {
     final now = DateTime.now();
     String currentDate = DateFormat('dd-MM-yyyy').format(now);

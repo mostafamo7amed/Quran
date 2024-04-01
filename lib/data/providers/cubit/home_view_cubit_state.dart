@@ -9,4 +9,6 @@ final class GetPrayerTimesSuccessState extends HomeViewCubitState {}
 final class SetNextPrayerTimesSuccessState extends HomeViewCubitState {}
 final class SetCountdownTimesSuccessState extends HomeViewCubitState {}
 final class SetTimeleftSuccessState extends HomeViewCubitState {}
+final class CheckConnectionState extends HomeViewCubitState {}
+
 
