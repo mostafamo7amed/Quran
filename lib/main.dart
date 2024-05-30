@@ -19,14 +19,16 @@ class Quran extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeViewCubitCubit()..checkConnection()..getLocation(),
+      create: (context) => HomeViewCubitCubit()
+        ..checkConnection()
+        ..getLocation(),
       child: MaterialApp(
         title: 'Quran',
         debugShowCheckedModeBanner: false,
         home: StreamBuilder<ConnectivityResult>(
             stream: Connectivity().onConnectivityChanged,
             builder: (context, snapshot) {
-              return snapshot.data != ConnectivityResult.none 
+              return snapshot.data != ConnectivityResult.none
                   ? const SafeArea(child: HomeView())
                   : const LostConnection();
             }),

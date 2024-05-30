@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:quran/data/constants/strings.dart';
+import 'package:quran/views/widgets/compase_widget.dart';
+import 'package:quran/views/widgets/prayer_widget.dart';
+import 'package:quran/views/widgets/quran_widget.dart';
+import 'package:quran/views/widgets/setting_widget.dart';
 import '../../models/prayer_time_model.dart' as model;
 import 'package:location/location.dart';
 import 'package:quran/data/network/request.dart';
@@ -14,6 +18,20 @@ class HomeViewCubitCubit extends Cubit<HomeViewCubitState> {
 
   static HomeViewCubitCubit getCubit(context) => BlocProvider.of(context);
 
+
+  int currentWidgetIndex = 0;
+
+  List<Widget> screens = [
+    const PrayerWidget(),
+    const QuranWidget(),
+    const CompaseWidget(),
+    const SettingWidget(),
+  ];
+
+  void changeBottomNav(int index) {
+    currentWidgetIndex = index;
+    emit(ChengeBottomNavState());
+  }
   double longitude = 0;
   double latitude = 0;
   String location = '';
@@ -32,7 +50,6 @@ class HomeViewCubitCubit extends Cubit<HomeViewCubitState> {
   void checkConnection() async {
     var result = await Connectivity().checkConnectivity();
     connectionState = result.name;
-    print('result.name' + result.name);
     emit(CheckConnectionState());
   }
 

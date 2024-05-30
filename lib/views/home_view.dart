@@ -13,6 +13,7 @@ class HomeView extends StatelessWidget {
         tabletLayout: (context) => const MobileView(),
         desktopLayout: (context) => const MobileView(),
       ),
+      
     );
   }
 }

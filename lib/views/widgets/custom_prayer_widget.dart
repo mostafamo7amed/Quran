@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:quran/data/constants/colors.dart';
 import 'package:quran/data/constants/strings.dart';
 
-class PrayerWidget extends StatelessWidget {
-  const PrayerWidget(
+class CustomPrayerWidget extends StatelessWidget {
+  const CustomPrayerWidget(
       {super.key,
       required this.time,
       required this.prayer,
