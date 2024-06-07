@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran/data/constants/colors.dart';
+import 'package:quran/core/utils/constants/colors.dart';
 
 class HijriData extends StatelessWidget {
   const HijriData(

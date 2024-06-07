@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:quran/data/models/prayer_time_model.dart';
-import 'package:quran/data/models/sura.dart' as surah;
-import 'package:quran/data/network/endpoints.dart';
+import 'package:quran/core/utils/models/prayer_time_model.dart';
+import 'package:quran/core/utils/models/sura.dart' as surah;
+import 'package:quran/core/utils/network/endpoints.dart';
 
 Future<PrayerTime> getPrayerTime(
     {required String date, required double lat, required double long}) async {

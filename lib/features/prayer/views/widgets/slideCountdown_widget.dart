@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quran/data/constants/colors.dart';
-import 'package:quran/data/constants/strings.dart';
-import 'package:quran/data/providers/cubit/home_view_cubit_cubit.dart';
+import 'package:quran/core/utils/constants/colors.dart';
+import 'package:quran/core/utils/constants/strings.dart';
+import 'package:quran/core/utils/providers/cubit/home_view_cubit_cubit.dart';
 import 'package:slide_countdown/slide_countdown.dart';
 
 class SlideCountdownWidget extends StatefulWidget {

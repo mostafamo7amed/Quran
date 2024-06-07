@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran/data/constants/colors.dart';
-import 'package:quran/data/providers/cubit/home_view_cubit_cubit.dart';
+import 'package:quran/core/utils/constants/colors.dart';
+import 'package:quran/core/utils/providers/cubit/home_view_cubit_cubit.dart';
 
 class MobileView extends StatefulWidget {
   const MobileView({super.key});

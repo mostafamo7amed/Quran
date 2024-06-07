@@ -1,11 +1,11 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran/data/providers/observer/bloc_observer.dart';
-import 'package:quran/views/home_view.dart';
-import 'package:quran/views/widgets/lost_connection.dart';
+import 'package:quran/core/utils/providers/cubit/home_view_cubit_cubit.dart';
+import 'package:quran/core/utils/providers/observer/bloc_observer.dart';
+import 'package:quran/features/prayer/views/home_view.dart';
+import 'package:quran/features/prayer/views/widgets/lost_connection.dart';
 
-import 'data/providers/cubit/home_view_cubit_cubit.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

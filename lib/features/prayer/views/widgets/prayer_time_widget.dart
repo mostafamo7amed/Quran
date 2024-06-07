@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quran/data/constants/strings.dart';
-import 'package:quran/data/providers/cubit/home_view_cubit_cubit.dart';
-import 'package:quran/views/widgets/custom_prayer_widget.dart';
-import 'package:quran/views/widgets/hijri_data_widget.dart';
+import 'package:quran/core/utils/constants/strings.dart';
+import 'package:quran/core/utils/providers/cubit/home_view_cubit_cubit.dart';
+import 'package:quran/features/prayer/views/widgets/custom_prayer_widget.dart';
+import 'package:quran/features/prayer/views/widgets/hijri_data_widget.dart';
 
 class PrayerTimeWidget extends StatelessWidget {
   const PrayerTimeWidget({super.key, required this.cubit});

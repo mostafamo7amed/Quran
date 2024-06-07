@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran/data/providers/cubit/home_view_cubit_cubit.dart';
-import 'package:quran/views/widgets/lost_connection.dart';
-import 'package:quran/views/widgets/prayer_time_widget.dart';
-import 'package:quran/views/widgets/prayer_timer_widget.dart';
+import 'package:quran/core/utils/providers/cubit/home_view_cubit_cubit.dart';
+import 'package:quran/features/prayer/views/widgets/lost_connection.dart';
+import 'package:quran/features/prayer/views/widgets/prayer_time_widget.dart';
+import 'package:quran/features/prayer/views/widgets/prayer_timer_widget.dart';
 
 class PrayerWidget extends StatelessWidget {
   const PrayerWidget({super.key});

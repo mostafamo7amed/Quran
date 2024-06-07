@@ -2,14 +2,14 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:quran/data/constants/strings.dart';
-import 'package:quran/views/widgets/compase_widget.dart';
-import 'package:quran/views/widgets/prayer_widget.dart';
-import 'package:quran/views/widgets/quran_widget.dart';
-import 'package:quran/views/widgets/setting_widget.dart';
+import 'package:quran/core/utils/constants/strings.dart';
+import 'package:quran/features/prayer/views/widgets/compase_widget.dart';
+import 'package:quran/features/prayer/views/widgets/prayer_widget.dart';
+import 'package:quran/features/quran/views/quran_widget.dart';
+import 'package:quran/features/prayer/views/widgets/setting_widget.dart';
 import '../../models/prayer_time_model.dart' as model;
 import 'package:location/location.dart';
-import 'package:quran/data/network/request.dart';
+import 'package:quran/core/utils/network/request.dart';
 
 part 'home_view_cubit_state.dart';
 

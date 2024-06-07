@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quran/views/widgets/adaptive_layout.dart';
-import 'package:quran/views/mobile_view.dart';
+import 'package:quran/core/widgets/adaptive_layout.dart';
+import 'package:quran/features/prayer/views/mobile_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
