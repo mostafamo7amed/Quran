@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran/core/utils/constants/assets.dart';
 import 'package:quran/core/utils/constants/colors.dart';
 import 'package:quran/core/utils/constants/strings.dart';
 import 'package:quran/core/utils/providers/cubit/home_view_cubit_cubit.dart';
@@ -19,7 +20,7 @@ class PrayerTimerWidget extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             Image.asset(
-              'assets/images/background.PNG',
+              AssetsData.background,
               fit: BoxFit.fill,
             ),
             Align(

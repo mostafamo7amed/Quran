@@ -10,14 +10,13 @@ import 'package:quran/features/prayer/views/widgets/setting_widget.dart';
 import '../../models/prayer_time_model.dart' as model;
 import 'package:location/location.dart';
 import 'package:quran/core/utils/network/request.dart';
-
 part 'home_view_cubit_state.dart';
+
 
 class HomeViewCubitCubit extends Cubit<HomeViewCubitState> {
   HomeViewCubitCubit() : super(HomeViewCubitInitial());
 
   static HomeViewCubitCubit getCubit(context) => BlocProvider.of(context);
-
 
   int currentWidgetIndex = 0;
 
@@ -32,8 +31,10 @@ class HomeViewCubitCubit extends Cubit<HomeViewCubitState> {
     currentWidgetIndex = index;
     emit(ChengeBottomNavState());
   }
+
   double longitude = 0;
   double latitude = 0;
+  int timeFromLocation = 0;
   String location = '';
   double timeLeftInMilliseconds = 0;
   model.PrayerTime prayerTime = model.PrayerTime();
@@ -85,6 +86,8 @@ class HomeViewCubitCubit extends Cubit<HomeViewCubitState> {
         latitude = currentLocation.latitude!;
         longitude = currentLocation.longitude!;
         location = currentLocation.provider!;
+        timeFromLocation = currentLocation.time!.toInt();
+        print('--------------------time from location ${currentLocation.time}');
         emit(GetLocationSuccessState());
       }
     });
@@ -99,7 +102,7 @@ class HomeViewCubitCubit extends Cubit<HomeViewCubitState> {
     String m = prayerTime.data!.timings!.maghrib!;
     DateFormat sdf = DateFormat("HH:mm");
     String str = sdf.format(DateTime.now());
-
+    print('----------------$str');
     double minutes = double.parse(str.substring(3, 5));
     double hours = double.parse(str.substring(0, 2));
     double currentTime = (hours * 60 * 60 + minutes * 60) * 1000;
@@ -174,4 +177,5 @@ class HomeViewCubitCubit extends Cubit<HomeViewCubitState> {
       emit(SetNextPrayerTimesSuccessState());
     }
   }
+
 }
